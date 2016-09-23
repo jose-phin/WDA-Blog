@@ -1,5 +1,8 @@
-extends layout
+extends layouts/_layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h3 Movies yayfull-ness
+    .movies
+        p loading movies...
+    script(type="text/javascript" src="movieLoader.js")
+

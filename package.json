@@ -13,8 +13,5 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0"
-  },
-  "devDependencies": {
-    "jade-bootstrap": "^1.0.6"
   }
 }
