@@ -15,12 +15,12 @@ router.post('/movie', function(req, res) {
     database.addMovie(req.body).then(
         //if everything was ok
         function() {
-            res.send("Write to database OK");
+            res.send({"success": true});
         },
         //else, if there was an error
         function(err) {
             res.status(400);
-            res.send(err.message);
+            res.send({"success": false, "message": err.message});
         }
     );
 });
@@ -33,12 +33,12 @@ router.get('/movie/:title', function(req, res) {
     database.getMovie(req.params.title).then(
         //if everything was ok
         function(results) {
-            res.send(results);
+            res.send({"success": true, movies: results});
         },
         //else, if there was an error
         function(err) {
             res.status(400);
-            res.send(err.message);
+            res.send({"success": false, "message": err.message});
         }
     );
 });
