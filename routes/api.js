@@ -12,29 +12,35 @@ router.post('/', function(req, res) {
  */
 router.post('/movie', function(req, res) {
 
-    //initialise the database connection
-    var result = database.startDb();
-
-    //handle the promise results
-    result.onFulfill(function (status) {
-        console.log(status);
-        database.addMovie(req.body).then(
-            //if everything was ok
-            function() {
-                res.send("Write to database OK");
-            },
-            //else, if there was an error
-            function(err) {
-                res.status(400);
-                res.send(err.message);
-            }
-        )
-    });
-    result.onReject(function (status) {
-        console.error(status);
-        res.status(500);
-        res.send(status);
-    });
-
+    database.addMovie(req.body).then(
+        //if everything was ok
+        function() {
+            res.send({"success": true});
+        },
+        //else, if there was an error
+        function(err) {
+            res.status(400);
+            res.send({"success": false, "message": err.message});
+        }
+    );
 });
+
+/**
+ * GET api movie, read entry from the database by movie title
+ */
+router.get('/movie/:title', function(req, res) {
+
+    database.getMovie(req.params.title).then(
+        //if everything was ok
+        function(results) {
+            res.send({"success": true, movies: results});
+        },
+        //else, if there was an error
+        function(err) {
+            res.status(400);
+            res.send({"success": false, "message": err.message});
+        }
+    );
+});
+
 module.exports = router;
