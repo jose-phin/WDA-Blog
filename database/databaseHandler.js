@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Movie = require('./schema/movies');
+var Movie = require('./model/movies');
 var config = require('./config.json');
 var Promise = require('mpromise');
 
