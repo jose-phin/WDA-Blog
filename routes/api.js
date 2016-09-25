@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var database = require('../model/database/databaseHandler');
+var database = require('../database/databaseHandler');
 
 /* POST api page. */
 router.post('/', function(req, res) {
