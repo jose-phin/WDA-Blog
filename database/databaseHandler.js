@@ -27,7 +27,17 @@ function addMovie(data) {
     return newMovie.save();
 }
 
+function getMovie(title) {
+
+    //decode the title
+    var decodedTitle = decodeURIComponent(title);
+
+    //find the movie by title, ignore case
+    return Movie.find({"title": new RegExp('^'+decodedTitle+'$', "i")}).exec();
+}
+
 module.exports = {
     startDb: startDb,
-    addMovie: addMovie
+    addMovie: addMovie,
+    getMovie:getMovie
 };
