@@ -2,7 +2,9 @@ extends layouts/_layout
 
 block content
     h3 Movies yayfull-ness
-    .movies
-        p loading movies...
+    p Movie List in DB YOO
+    each movie in movies
+        li= movie.title
+        
+    
     script(type="text/javascript" src="movieLoader.js")
-

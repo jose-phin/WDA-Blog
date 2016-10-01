@@ -20,15 +20,25 @@ function addMovie(data) {
     //create a new movie using the schema
     var newMovie = new Movie({
         title: data.title,
-        year : data.year
+        year : data.year,
+        rating : data.rating,
+        releaseDate: data.releaseDate,
+        runTime: data.runTime,
+        genre: data.genre,
+        director: data.director,
+        writter: data.writter,
+        actors: data.actors,
+        plot: data.plot,
+        poster: data.poster,
+        imdbID: data.imdbID,
+        imdbRating : data.imdbRating
     });
-
+    console.log("data: "+data);
     //return the save promise
     return newMovie.save();
 }
 
 function getMovie(title) {
-
     //decode the title
     var decodedTitle = decodeURIComponent(title);
 
@@ -36,8 +46,48 @@ function getMovie(title) {
     return Movie.find({"title": new RegExp('^'+decodedTitle+'$', "i")}).exec();
 }
 
+
+function getMovieV2(title, callback) {
+    var movie;
+    // finds the movie by title, ignoring cases
+    // then processes the data and executres the callback on success
+    Movie.find({"title": new RegExp('^' + title+'$', 'i')}).cursor()
+            .on('data', function(doc) { movie = doc; })
+            .on('err', function() { return callback(err,null); })
+            .on('end', function() { return callback(null,movie); });
+}
+
+function getAllMovies(callback) {
+
+    var movies = [];
+
+    // Gets all the movies form the database
+    Movie.find().cursor()
+            .on('data', function(doc) { console.log(doc.title); movies.push(doc);})
+            .on('err', function() {return callback(err,null);})
+            .on('end', function() { console.log('Done!'); return callback(null,movies);});
+}
+
+function addComments(title, comment, callback) {
+    // add the date in
+    comment.date = new Date;
+    var movie;
+
+    // finds the movie accodring to the title
+    // then saves the comment to the database after retreiving it
+    Movie.find({"title": new RegExp('^' + title+'$', 'i')})
+        .cursor()
+        .on('data', function(doc){movie = doc})
+        .on('err', function() {return callback(err);})
+        .on('end', function() {movie.comments.push(comment);movie.save(); return callback(null)});
+}
+
+
 module.exports = {
     startDb: startDb,
     addMovie: addMovie,
-    getMovie:getMovie
+    getMovie:getMovie,
+    getMovieV2:getMovieV2,
+    addComments:addComments,
+    getAllMovies : getAllMovies
 };
