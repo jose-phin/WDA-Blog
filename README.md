@@ -1,6 +1,21 @@
 # WDA-Blog
 
 ##API Documentation
+
+###List of URLs
+```
+\
+```
+Will show all the movies and all the movie information are accessible
+
+```
+\<movie-title>
+```
+The blog section which contains a single movie's information
+and a commenting system.
+
+Sending the form will create a POST request and will redirect you back to the page and the newly added comment will be shown.
+
 ###Add Movie
 * **URL**
 ```
@@ -9,37 +24,41 @@ POST /api/movie
 
 * **Description**
 
-This endpoint will write a new movie document into the movies collection in the 
-mongoDB instance in mlab, this endpoint has schema validation so you will need to
-input the required data
+This endpoint needs an OMDB ID of the movie. Since we are not going to be getting data from OMDB again and again, I hardcoded the ID's as an example.
 
+To add, make a post request with `omdbId` variable
 
-* **Parameters**
+* **example**
+```
+{omdbId : "tt0435761"}
+```
+###DB Schema
+The data that can be accessed in the front end (p.s. I spelled writer wrong and I will never change it)
 
-**Required**
-```javascript
+```
 {
-  "title":[String],
-  "year":[Number]
+    title: String,
+    year: Number,
+    rating: String,
+    releaseDate: String,
+    runtTime: String,
+    genre: String,
+    director: String,
+    writter: String,
+    actors: String,
+    plot: String,
+    poster: String,
+    imdbID: String,
+    imdbRating: Number,
+    comments :
+        [{
+            username: String,
+            comment: String
+            date: Date
+            }]
 }
 ```
 
-* **Success Response**
-
-*JSON* `{"success": true}`
-
-* **Error Response**
-
-*JSON* `{"success": false, "message": "Movie validation failed"}`
-
-* **Sample Call**
-```javascript
-//to add a new movie
-{
-    "title": "Harry potter, and the man with the golden gun",
-    "year": 2016
-}
-```
 
 ###Search for movie by title
 * **URL**
@@ -53,7 +72,7 @@ This endpoint will search the movies collection in the mongoDb instance in mLabs
 for the title of the movie that the user requests.
 
 **important - You will need to run encodeUriComponent on the title so that
-the title can be read by the endpoint** 
+the title can be read by the endpoint**
 
 ```javascript
 //The title name
