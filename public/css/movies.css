@@ -1,0 +1,227 @@
+/* Movies */
+
+/* Movie Page Title: */
+.pageTitle-container{
+    text-align: center;
+    padding: 50px 0 20px 0;
+}
+
+/* Page title icons */
+.movieList-pageTitle-icon{
+    font-size: 3em;
+}
+.movieList-pageTitle-icon.icon-fire:before{
+    color: #D8C39D;
+}
+
+.movieList-pageTitle-icon.icon-hourglass:before{
+    color: #B6DDC8;
+}
+
+.movieList-pageTitle{
+    font-weight: 200;
+    font-size: 2em;
+    color: #D8C39D;
+    letter-spacing: 0px;
+}
+
+.movieList-pageTitle-comingSoon{
+    color: #B6DDC8;
+}
+
+hr.separator-movieList-nowPlaying{
+    width: 40px;
+    background: #D8C39D;
+    height: 1px;
+    border: none;
+}
+
+hr.separator-movieList-comingSoon{
+    width: 40px;
+    background: #B6DDC8;
+    height: 1px;
+    border: none;
+}
+
+/* Movie List Container */
+.flex-container {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
+/* Movie Item */
+.movieList-movieItem {
+    flex-grow: 0;
+    padding: 20px 50px;
+    margin: 10px;
+    min-width: 300px;
+    max-width: 300px;
+    transition: all 0.1s ease-in-out;
+}
+
+.movieList-movieItem > *{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.movieList-movieItem:hover{
+    border-radius: 5px;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.movieList-moviePosterContainer{
+    width: 145px;
+    height: 215px;
+    margin-bottom: 20px;
+    z-index: 0;
+    /* Subtle shadow overlay makes the posters pop :) */
+    box-shadow: inset -0.5px 1px 0px rgba(255,255,255,0.1),
+    inset 0.5px -1px 0px rgba(255,255,255,0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.movieList-moviePosterContainer:hover{
+    transform: scale(1.05);
+    box-shadow: inset -1px 1px 0px rgba(255,255,255,0.3),
+    inset 1px -1px 0px rgba(255,255,255,0.2),
+    0px 0px 100px 20px black;
+}
+
+.movieList-moviePoster{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: -2;
+}
+
+/* Movie Title */
+.movieList-movieTitle a, .movieList-movieTitle a:visited {
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: 500;
+    letter-spacing: 0px;
+    /*margin-bottom: 10px;*/
+}
+
+.movieList-movieTitle a:hover, .movieList-movieTitle a:active {
+    color: #A59578;
+    text-decoration: none;
+}
+
+.movieList-movieDirector{
+    margin-top: 8px;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+hr.separator-movieList-detail{
+    width: 25px;
+    background: #fff;
+    height: 1px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.movieList-movieGenres{
+    font-size: 0.9em;
+    color: #D2D2D2;
+}
+.movieList-movieReleaseDate{
+    font-size: 0.8em;
+    font-weight: 400;
+    color: #D2D2D2;
+    padding: 5px 0;
+}
+
+/* Individual movie page */
+.aboveBackground {
+    padding-top: -50px;
+    margin-top: -100px;
+}
+
+.singleMovie-mainInformation {
+    display: block;
+}
+
+.singleMovie-moviePosterLg {
+    z-index: 1;
+    width: 100%;
+    height: 375px;
+    overflow: hidden;
+}
+
+.singleMovie-moviePosterContainer {
+    position: relative;
+    display: block;
+    float: left;
+    width: 160px;
+    margin: 10px 40px 0 0;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .4);
+    z-index: 2;
+}
+
+h3.singleMovie-movieTitle {
+    font-size: 4em;
+}
+
+.singleMovie-subSection {
+    display: block;
+    float: left;
+    width: 150px;
+    margin: 25px 0;
+}
+
+.singleMovie-subHeading {
+    padding-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 0;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.singleMovie-secondaryInformation {
+    width: 650px;
+}
+
+.singleMovie-movieSynopsis {
+    float: left;
+    margin: 30px 0;
+}
+
+.singleMovie-movieSynopsis h4 {
+    text-transform: uppercase;
+    border-bottom: 1px solid #343434;
+}
+
+/* Movie buttons */
+
+.singleMovie-infoContainer {
+    float: left;
+    height: 180px;
+    width: 500px;
+}
+
+.redButton {
+    clear: left;
+    background-color: #9D0E16;
+    border: 1px solid #9D0E16;
+    padding: 15px 50px;
+}
+
+.redButton:hover, .redButton:active {
+    background-color: #AC1018;
+    border: 1px solid #9D0E16;
+}
+
+.redButton a {
+    color: #ffffff;
+    font-size: 1.2em;
+}

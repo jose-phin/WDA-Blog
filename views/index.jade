@@ -2,14 +2,23 @@ extends layouts/_layout
 
 block content
     .container
-        .content
-            h2 Movies Now Playing
+        .pageTitle-container
+            i.movieList-pageTitle-icon.icon-fire
+            h1.movieList-pageTitle Movies: Now Showing
+            hr.separator-movieList-nowPlaying
 
-            .flex-container
-                each movie in movies
-                    li= movie.title
+        .flex-container.container-fluid
+            each movie in movies
+                .movieList-movieItem
+                    .movieList-moviePosterContainer
+                        img.movieList-moviePoster(src= movie.poster)
+                    h5.movieList-movieTitle= movie.title
+                    p.movieList-movieDirector= movie.director
+                    hr.separator-movieList-detail
+                    p.movieList-movieGenres= movie.genre
+                    movieList-movieReleaseDate= movie.releaseDate
 
-                script(type="text/javascript" src="movieLoader.js")
+            script(type="text/javascript" src="movieLoader.js")
 
         footer
             .row
