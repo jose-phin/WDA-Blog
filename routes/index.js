@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
       return res.send({"success": false, "message": err.message});
     }
     console.log("in here results");
-      res.render('index', { title: 'blabla', movies:results});
+      res.render('index', { title: 'Mavericks Inc. Blog', movies:results});
   });
 
 });

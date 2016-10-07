@@ -1,10 +1,22 @@
 extends layouts/_layout
 
 block content
-    h3 Movies yayfull-ness
-    p Movie List in DB YOO
-    each movie in movies
-        li= movie.title
-        
-    
-    script(type="text/javascript" src="movieLoader.js")
+    .container
+        .content
+            h2 Movies Now Playing
+
+            .flex-container
+                each movie in movies
+                    li= movie.title
+
+                script(type="text/javascript" src="movieLoader.js")
+
+        footer
+            .row
+                .col-md-6
+                    h4 WDA Assignment Two
+                    p Joshua Pancho
+                    p Dennis Hou
+                    p Jacqueline Shadforth
+                    p Josephine Pramudia
+                    p Chloe Smith
