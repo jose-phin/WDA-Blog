@@ -9,13 +9,16 @@ block content
             
             li user:#{c.username}
             li comment: #{c.comment}
-    form(method="POST")
-        label(for="username") Username:
-        input(type="text",name="username")
-        br
-        label(for="comment") Comment:
-        input(type="text",name="comment")       
-        br
-        button(type="submit") comment 
+    if isNotLoggedIn
+        p To be able to comment, please 
+            a(href='/login') login
+    else 
+        form(method="POST")
+            label(for="username") Username: #{username}
+            br
+            label(for="comment") Comment:
+            input(type="text",name="comment")       
+            br
+            button(type="submit") comment 
     
     script(type="text/javascript" src="movieLoader.js")

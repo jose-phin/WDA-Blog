@@ -1,0 +1,12 @@
+extends layouts/_layout
+
+block content
+    p warmingMessage:  #{warningMessage}
+    form(method="POST", id="loginForm")
+        label(class="form-label",for="username") Username:
+        input(type="text", name="username")
+        br
+        label(class="form-label",for="password") Password:
+        input(type="text", name="password")
+        button(class="green-b",type="submit") Login
+    button(type="submit", onClick="createAccount()") Create
