@@ -6,7 +6,7 @@ var request = require('request');
     callback: Optional
     return value: will call the callback and execute each time for each id
 */
-function getMoviesById(movieIdArr, callback = null) {
+function getMoviesById(movieIdArr, callback) {
     var idList = [];
 
     if (movieIdArr != null) {

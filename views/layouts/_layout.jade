@@ -1,16 +1,19 @@
-head
-    script(type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
-    title #{title}
+html
+    head
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css' integrity='sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+' crossorigin='anonymous')
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:500')
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous')
+        link(rel='stylesheet' type='text/css' href='/css/style.css')
+        link(rel='stylesheet' type='text/css' href='/css/movies.css')
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css')
+        script(type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+        title #{title}
     script(src="/js/ajaxScripts.js")
 
-body
-    h1 Welcome to xXSepHiROthxxNarUT0Xx Movies
-    .nav
-        ul
-            li
-                a(href="/") Home
-    hr
-    block content
-    footer
-        hr
-        p WDA Assignment 2 - xXSepHiROthxxNarUT0Xx Movies
+    body
+        nav.navbar.navbar-default.navbar-static-top#mavericks-nav
+            .container
+                .navbar-header
+                    a.navbar-brand.navbar-title(href="/") Mavericks Inc. Blog
+
+        block content

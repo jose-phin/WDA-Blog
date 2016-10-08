@@ -1,12 +1,31 @@
 extends layouts/_layout
 
 block content
-    h3 Movies yayfull-ness
-    p Movie List in DB YOO
-    p AYEEE man: #{username}
-    each movie in movies
-        a(href='/#{movie.title}')
-            li= movie.title
-        
-    
-    script(type="text/javascript" src="movieLoader.js")
+    .container
+        .pageTitle-container
+            i.movieList-pageTitle-icon.icon-fire
+            h1.movieList-pageTitle Movies: Now Showing
+            hr.separator-movieList-nowPlaying
+
+        .flex-container.container-fluid
+            each movie in movies
+                .movieList-movieItem
+                    .movieList-moviePosterContainer
+                        img.movieList-moviePoster(src= movie.poster)
+                    h5.movieList-movieTitle= movie.title
+                    p.movieList-movieDirector= movie.director
+                    hr.separator-movieList-detail
+                    p.movieList-movieGenres= movie.genre
+                    movieList-movieReleaseDate= movie.releaseDate
+
+            script(type="text/javascript" src="movieLoader.js")
+
+        footer
+            .row
+                .col-md-6
+                    h4 WDA Assignment Two
+                    p Joshua Pancho
+                    p Dennis Hou
+                    p Jacqueline Shadforth
+                    p Josephine Pramudia
+                    p Chloe Smith
