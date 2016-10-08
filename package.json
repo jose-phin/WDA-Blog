@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "re-start" :"npm install && nodemon ./bin/www",
     "start": "node ./bin/www",
     "monitor": "nodemon ./bin/www"
   },

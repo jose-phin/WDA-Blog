@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Movie = require('./model/movies');
+var User = require('./model/user');
 var config = require('./config.json');
 var Promise = require('mpromise');
 
@@ -82,6 +83,33 @@ function addComments(title, comment, callback) {
         .on('end', function() {movie.comments.push(comment);movie.save(); return callback(null)});
 }
 
+function addUser (data, callback) {
+    var newUser = new User();
+    newUser.username = data.username;
+    newUser.password = data.password;
+    newUser.save(function(err) {
+        console.log("new user: "+ newUser);
+        return callback(err, newUser);
+    });
+}
+
+function findUser (loginUser, callback) {
+    var user;
+    User.findOne({'username' : new RegExp('^' + loginUser.username+'$', 'i')})
+        .cursor()
+        .on('data', function(data) {user = data})
+        .on('err', function() { return callback(err, null) })
+        .on('end', function()
+                    {   if( user == null ) {
+                            return callback(null, null);
+                        }
+                        if(user.username == loginUser.username && loginUser.password == user.password) {
+                            return callback(null, user);
+                        } else {
+                            return callback(null, null);
+                        }
+                    });
+}
 
 module.exports = {
     startDb: startDb,
@@ -89,5 +117,7 @@ module.exports = {
     getMovie:getMovie,
     getMovieV2:getMovieV2,
     addComments:addComments,
-    getAllMovies : getAllMovies
+    getAllMovies : getAllMovies,
+    addUser: addUser,
+    findUser:findUser
 };

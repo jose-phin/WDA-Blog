@@ -3,8 +3,10 @@ extends layouts/_layout
 block content
     h3 Movies yayfull-ness
     p Movie List in DB YOO
+    p AYEEE man: #{username}
     each movie in movies
-        li= movie.title
+        a(href='/#{movie.title}')
+            li= movie.title
         
     
     script(type="text/javascript" src="movieLoader.js")

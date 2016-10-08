@@ -2,6 +2,9 @@
 
 ##API Documentation
 
+To run the program without PHPStorm run: `npm run monitor`
+
+
 ###List of URLs
 ```
 \
@@ -15,6 +18,16 @@ The blog section which contains a single movie's information
 and a commenting system.
 
 Sending the form will create a POST request and will redirect you back to the page and the newly added comment will be shown.
+
+```
+\login
+```
+Will take you to the login page which has 2 buttons, 'login' and 'create'. The 'create' button will create a new user whilst the 'login' button will authenticate the inputs.
+
+```
+\logout
+```
+Will remove session.username and will no longer be able to comment
 
 ###Add Movie
 * **URL**
