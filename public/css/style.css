@@ -14,9 +14,17 @@ a:hover {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+*{
   font-family: 'Rubik', 'Helvetica', 'Arial', sans-serif;
+  font-size: 13.5px;
+  font-weight: 300;
+  /* Enables anti-aliasing for smoother fonts */
+
 }
+
+/*h1, h2, h3, h4, h5, h6 {*/
+  /*font-family: 'Rubik', 'Helvetica', 'Arial', sans-serif;*/
+/*}*/
 
 /* Navigation bar */
 .navbar-title {
@@ -88,8 +96,81 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Footer */
+/* Footer */
 footer {
+  background: #121212;
   min-height: 300px;
-  padding-top: 20px;
+  padding: 50px 0;
   color: #fff;
+}
+
+.footer-logo{
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 40px;
+  -webkit-text-stroke: 1px #121212;
+}
+
+
+.footer-grid-title{
+  padding-bottom: 50px;
+}
+
+.footer-studentRow > div{
+  padding-bottom: 25px;
+}
+
+h4.footer-assignmentTitle{
+  margin-bottom: 0;
+}
+
+h5.footer-assignmentSubtitle{
+  margin-top: 5px;
+}
+
+h5.footer-assignmentSubtitle{
+  font-weight: 300;
+}
+
+h5.footer-studentRoles{
+  color: #A4A4A4;
+}
+
+.footer-studentList{
+  padding-left: 0;
+  list-style-type: none;
+  color: #A4A4A4;
+}
+
+/* Login and register */
+
+.panel-default {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 100;
+  margin-top: 30px;
+  border-color: #3e3e3e;
+}
+
+.panel-default > .panel-heading, .panel-default > .panel-body {
+  border-color: #3e3e3e;
+  background-color: #000;
+  color: #fff;
+}
+
+.gold {
+  background: #A59578;
+  border: 1px solid #D8C39D;
+}
+
+.gold:hover {
+  background: #8B7957;
+  border: 1px solid #D8C39D;
+}
+
+.btn-link {
+  color: #D8C39D !important;
+}
+
+.btn-link:hover {
+  color: #8B7957;
 }

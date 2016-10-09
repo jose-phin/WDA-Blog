@@ -1,0 +1,15 @@
+nav.navbar.navbar-default.navbar-static-top#mavericks-nav
+    .container
+        .navbar-header
+            a.navbar-brand.navbar-title(href="/") Mavericks Inc. Blog
+        .navbar-collapse.collapse#navbar
+            ul.nav.navbar-nav.navbar-right
+
+                if username
+                    li
+                        a(href="/logout") Logout
+                else
+                    li
+                        a(href="/login") Login
+                    li
+                        a(href="/register") Register

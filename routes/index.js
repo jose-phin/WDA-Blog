@@ -9,7 +9,8 @@ router.get('/', function(req, res) {
       res.status(400);
       return res.send({"success": false, "message": err.message});
     }
-    res.render('index', { title: 'blabla', movies:results, username: req.session.username});
+
+    res.render('index', { title: 'Mavericks Inc. Blog', movies:results, username: req.session.username});
   });
 });
 
@@ -20,6 +21,10 @@ router.get('/login', function(req, res) {
   }
   res.render('login', {warningMessage: warningMessage});
 });
+
+router.get('/register', function(req, res) {
+  res.render('register');
+})
 
 
 router.post('/createAccount', function(req, res) {
@@ -62,7 +67,7 @@ router.get('/:title', function(req, res) {
         return res.send({"success": false, "message": err.message});
       }
 
-      let isNotLoggedIn = false;
+      var isNotLoggedIn = false;
 
       if(!req.session.username) {
         isNotLoggedIn = true;

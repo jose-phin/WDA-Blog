@@ -5,17 +5,13 @@ block content
         .row
             .col-md-8.col-md-offset-2
                 .panel.panel-default
-                    .panel-heading Login
+                    .panel-heading Register
                     .panel-body
-                        form.form-horizontal#loginForm(method="POST", action="/login")
+                        form.form-horizontal#loginForm(method="POST", action="/createAccount")
                             .form-group
                                 label.col-md-4.control-label(for="username") Username
                                 .col-md-6
                                     input.form-control#username(type="text", name="username")
-
-                                    if warningMessage
-                                        span.help-block
-                                            strong #{warningMessage}
                             .form-group
                                 label.col-md-4.control-label(for="password") Password
                                 .col-md-6
@@ -24,4 +20,4 @@ block content
                                 .col-md-6.col-md-offset-4
                                     button.btn.btn-primary.gold(type="submit")
                                         i.fa.fa-btn.fa-sign-in
-                                        |   Login
+                                        |   Register
