@@ -30,7 +30,7 @@ router.get('/register', function(req, res) {
   }
 
   res.render('register', {warningMessage: warningMessage});
-})
+});
 
 
 router.post('/createAccount', function(req, res) {
