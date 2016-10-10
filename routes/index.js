@@ -62,7 +62,7 @@ router.get('/:title', function(req, res) {
         return res.send({"success": false, "message": err.message});
       }
 
-      let isNotLoggedIn = false;
+      var isNotLoggedIn = false;
 
       if(!req.session.username) {
         isNotLoggedIn = true;
