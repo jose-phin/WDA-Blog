@@ -23,12 +23,24 @@ router.get('/login', function(req, res) {
 });
 
 router.get('/register', function(req, res) {
-  res.render('register');
+  var warningMessage;
+
+  if (req.query.error) {
+    warningMessage = "Please ensure you have entered both a username and a password"
+  }
+
+  res.render('register', {warningMessage: warningMessage});
 })
 
 
 router.post('/createAccount', function(req, res) {
   var newUser = req.body;
+
+  // some validation for the input fields
+  if (newUser.username == '' || newUser.password == '') {
+    return res.redirect('register?error=true');
+  }
+
   database.addUser( newUser, function(err, user) {
     if (err) {
       res.status(400);

@@ -12,14 +12,14 @@ block content
                                 label.col-md-4.control-label(for="username") Username
                                 .col-md-6
                                     input.form-control#username(type="text", name="username")
-
-                                    if warningMessage
-                                        span.help-block
-                                            strong #{warningMessage}
                             .form-group
                                 label.col-md-4.control-label(for="password") Password
                                 .col-md-6
                                     input.form-control#password(type="password", name="password")
+
+                                    if warningMessage
+                                        span.help-block
+                                            strong #{warningMessage}
                             .form-group
                                 .col-md-6.col-md-offset-4
                                     button.btn.btn-primary.gold(type="submit")
