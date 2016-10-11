@@ -164,6 +164,11 @@ footer {
     color: #fff;
 }
 
+
+/* Form */
+.reply-form {
+  display: none;
+}
 .footer-logo{
     margin: 0 auto;
     text-align: center;
