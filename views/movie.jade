@@ -1,14 +1,24 @@
 extends layouts/_layout
 
 block content
-    h3 #{movie.title}
-    p Description: #{movie.plot}
-    p Comments:
-    each c in movie.comments
-        ul
-            
-            li user:#{c.username}
-            li comment: #{c.comment}
+    .moviePage-movieBackgroundGradient
+    .moviePage-movieBackgroundImage(style= 'background-image: url('+ movie.poster + ');')
+
+
+    .container
+
+        .moviePage-moviePosterContainer
+            img.moviePage-moviePoster(src= movie.poster)
+
+        .moviePage-container
+            h1.moviePage-movieTitle #{movie.title}
+            p Description: #{movie.plot}
+            p Comments:
+            each c in movie.comments
+                ul
+
+                    li user:#{c.username}
+                    li comment: #{c.comment}
             li 
                 if c.replies
                     for r in c.replies
@@ -29,16 +39,16 @@ block content
                             input(type="hidden",name="commentId",value='#{c.id}')
                             button(type="submit") comment 
                     
-    if isNotLoggedIn
-        p To be able to comment, please 
-            a(href='/login') login
-    else 
+            if isNotLoggedIn
+                p To be able to comment, please
+                    a(href='/login') login
+            else
         form(method="POST" id="comment-form")
-            label(for="username") Username: #{username}
-            br
-            label(for="comment") Comment:
-            input(type="text",name="comment")       
-            br
-            button(type="submit") comment 
-    
+                    label(for="username") Username: #{username}
+                    br
+                    label(for="comment") Comment:
+                    input(type="text",name="comment")
+                    br
+                    button(type="submit") comment
+
     script(type="text/javascript" src="movieLoader.js")

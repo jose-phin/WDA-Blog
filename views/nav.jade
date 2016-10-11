@@ -1,0 +1,44 @@
+// Fixed Navigation
+nav.mavericks-nav.navbar.navbar-default.navbar-static-top.navbar-fixed-top
+  .container
+    // Left of Nav
+    .navbar-header
+      // Hamburger Menu
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      // Logo
+      a.navbar-brand.navbar-title(href="/")
+        i.fa.fa-film(aria-hidden='true')
+        | &nbsp;Mavericks Inc. Cinema
+        .navbar-brand-Blog
+          | Blog
+    // Right of Nav
+    #navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav.navbar-right
+        // Movies
+        li
+          a(href="{{ url('movies/') }}") Movies
+        li
+          a(href="{{ url('search/') }}") Search
+        // Authentication Links
+        //if (Auth::guest())
+        li
+          a(href="{{ url('/login') }}") Login
+        li
+          a(href="{{ url('/register') }}") Register
+        //else
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+
+            span.caret
+          ul.dropdown-menu(role='menu')
+            li
+              a(href="{{ url('user/profile') }}") View Profile
+            li
+              a(href="{{ url('/logout') }}")
+                i.fa.fa-btn.fa-sign-out
+                | Logout
+

@@ -8,25 +8,18 @@ block content
             hr.separator-movieList-nowPlaying
 
         .flex-container.container-fluid
+            script.
             each movie in movies
+
                 a(href='/#{movie.title}')
                     .movieList-movieItem
                         .movieList-moviePosterContainer
                             img.movieList-moviePoster(src= movie.poster)
+                            img.movieList-moviePoster.posterGlow(src= movie.poster)
                         h5.movieList-movieTitle= movie.title
                         p.movieList-movieDirector= movie.director
                         hr.separator-movieList-detail
                         p.movieList-movieGenres= movie.genre
                         movieList-movieReleaseDate= movie.releaseDate
-
+                        span.movieRating= movie.imdbRating
             script(type="text/javascript" src="movieLoader.js")
-
-        footer
-            .row
-                .col-md-6
-                    h4 WDA Assignment Two
-                    p Joshua Pancho
-                    p Dennis Hou
-                    p Jacqueline Shadforth
-                    p Josephine Pramudia
-                    p Chloe Smith
