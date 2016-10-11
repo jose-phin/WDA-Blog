@@ -24,6 +24,7 @@
     height: 30vh;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 0 25%;
     z-index: -1;
     filter: blur(50px);
     overflow: hidden;
@@ -110,12 +111,13 @@
 
 span.movieRating.moviePage-userRating{
     display: block;
+    box-sizing: border-box;
     line-height: 3em;
     text-align: center;
     font-weight: 400;
     font-size: 1.2em;
     color: #D8C39D;
-    border: 2px solid #D8C39D;
+    border: 3px solid #D8C39D;
     border-radius: 50%;
     width: 50px;
     height: 0;
@@ -133,8 +135,14 @@ span.movieRating.moviePage-userRating{
     padding-bottom: 10px;
 }
 
+.moviePage-commentsSectionContainer{
+    padding: 20px 0;
+}
 
-
+.commentsTitle{
+    font-size: 1.4em;
+    font-weight: 500;
+}
 
 
 /* Large desktop */
