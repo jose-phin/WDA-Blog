@@ -119,11 +119,67 @@ hr.separator-generic{
 
 
 
-
+/* Login and Register */
 .loginRegisterContainer{
     margin-top: 10px;
 }
 
+.loginRegister-panelContainer{
+    background: black;
+    border: none;
+}
+
+.loginRegister-panelContainer > .loginRegister-panelHeading{
+    background-color: black;
+    border: 0;
+    color: white;
+    font-size: 3em;
+    text-align: center;
+}
+
+.loginRegister-panelBody{
+    background-color: black;
+    border: 0;
+}
+
+.loginRegister-title{
+    font-weight: 300;
+    font-size: 1.1em;
+}
+
+.loginRegister-inputBox{
+    background: black;
+    color: white;
+    outline: none;
+    border: 1px solid #A4A4A4;
+    transition: all 0.2s ease-in-out;
+}
+
+.loginRegister-inputBox:focus{
+    outline: none;
+    border: 1px solid #D8C39D;
+    box-shadow: 0 0 10px rgba(216,195,157,0.5);
+    transition: all 0.2s ease-in-out;
+}
+
+span.help-block{
+    color: #9D0E16;
+    font-weight: 300;
+}
+
+button.btn.btn-primary.gold{
+    background: #D8C39D;
+    color: black;
+    padding: 10px 25px;
+    border-radius: 6px;
+    border: 1px solid #D8C39D;
+    transition: all 0.2s ease-in-out;
+}
+
+button.btn.btn-primary.gold:hover{
+    transform: scale(1.05);
+
+}
 
 /* Footer */
 footer {

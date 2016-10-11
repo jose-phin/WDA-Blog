@@ -5,24 +5,23 @@ block content
         .loginRegisterContainer
             .row
                 .col-md-8.col-md-offset-2
-                    .panel.panel-default
-                        .panel-heading Login
-                        .panel-body
+                    .panel.panel-default.loginRegister-panelContainer
+                        .panel-heading.loginRegister-panelHeading Login
+                        .panel-body.loginRegister-panelBody
                             form.form-horizontal#loginForm(method="POST", action="/login")
                                 .form-group
-                                    label.col-md-4.control-label(for="username") Username
+                                    label.col-md-4.control-label(for="username", class="loginRegister-title") Username
                                     .col-md-6
-                                        input.form-control#username(type="text", name="username")
+                                        input.form-control#username(type="text", name="username", class="loginRegister-inputBox")
                                 .form-group
-                                    label.col-md-4.control-label(for="password") Password
+                                    label.col-md-4.control-label(for="password", class="loginRegister-title") Password
                                     .col-md-6
-                                        input.form-control#password(type="password", name="password")
+                                        input.form-control#password(type="password", name="password", class="loginRegister-inputBox")
 
                                         if warningMessage
-                                            span.help-block
-                                                strong #{warningMessage}
+                                            span.help-block= warningMessage
                                 .form-group
                                     .col-md-6.col-md-offset-4
                                         button.btn.btn-primary.gold(type="submit")
                                             i.fa.fa-btn.fa-sign-in
-                                            |   Login
+                                            |&nbsp;&nbsp;Login
