@@ -167,6 +167,7 @@ span.movieRating.moviePage-userRating{
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+    resize: vertical;
 }
 
 .comment-inputBox:focus{
@@ -272,6 +273,7 @@ span.movieRating.moviePage-userRating{
 
 .commentReply-inputBox{
     background: rgb(28,28,28);
+    resize: vertical;
 }
 
 .repliesContainer{

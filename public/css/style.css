@@ -116,44 +116,13 @@ hr.separator-generic{
     margin-left: 10px;
 }
 
-/* Carousel */
-#mavericks-carousel {
-    margin-bottom: 20px;
+
+
+
+
+.loginRegisterContainer{
+    margin-top: 10px;
 }
-
-#mavericks-carousel img {
-    width: 100vw;
-}
-
-.slick-slider ul {
-    padding-left: 47%;
-    margin: -100px 0 50px 0;
-}
-
-.slick-dots li {
-    display: block;
-    float: left;
-    margin: 0 5px;
-    width: 6px;
-    height: 6px;
-    background-color: #fff;
-    border-radius: 50%;
-    opacity: .85;
-}
-
-.slick-active {
-    background-color: #aaaaaa !important;
-}
-
-.slick-dots li:hover {
-    cursor: pointer;
-}
-
-.slick-dots li button {
-    display: none;
-}
-
-
 
 
 /* Footer */
