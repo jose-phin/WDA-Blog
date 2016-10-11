@@ -9,7 +9,8 @@ router.get('/', function(req, res) {
       res.status(400);
       return res.send({"success": false, "message": err.message});
     }
-    res.render('index', { title: 'blabla', movies:results, username: req.session.username});
+
+    res.render('index', { title: 'Mavericks Inc. Blog', movies:results, username: req.session.username});
   });
 });
 
@@ -21,9 +22,25 @@ router.get('/login', function(req, res) {
   res.render('login', {warningMessage: warningMessage});
 });
 
+router.get('/register', function(req, res) {
+  var warningMessage;
+
+  if (req.query.error) {
+    warningMessage = "Please ensure you have entered both a username and a password"
+  }
+
+  res.render('register', {warningMessage: warningMessage});
+});
+
 
 router.post('/createAccount', function(req, res) {
   var newUser = req.body;
+
+  // some validation for the input fields
+  if (newUser.username == '' || newUser.password == '') {
+    return res.redirect('register?error=true');
+  }
+
   database.addUser( newUser, function(err, user) {
     if (err) {
       res.status(400);
