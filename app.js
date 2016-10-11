@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var session = require('express-session');
 var databaseHandler = require('./database/databaseHandler');
+var omdb = require('./database/external/omdb');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -40,6 +41,12 @@ app.use(express.static(path.join(__dirname, 'public/js')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', api);
+ app.get('/omdb/:omdbId', function(req,res) {
+      omdb.getMoviesById(req.params.omdbId, function(movie) {
+        databaseHandler.addMovie(movie);
+      });
+   res.redirect('/');
+});
 
 //initialise the database connection
 var result = databaseHandler.startDb();

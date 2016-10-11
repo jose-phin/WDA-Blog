@@ -93,3 +93,9 @@ footer {
   padding-top: 20px;
   color: #fff;
 }
+
+
+/* Form */
+.reply-form {
+  display: none;
+}
