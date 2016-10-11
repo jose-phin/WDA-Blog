@@ -42,11 +42,11 @@ block content
                     a(href='/login') login
             else
                 form(method="POST" id="comment-form")
-                            label(for="username") Username: #{username}
-                            br
-                            label(for="comment") Comment:
-                            input(type="text",name="comment")
-                            br
-                            button(type="submit") comment
+                    label(for="username") Username: #{username}
+                    br
+                    label(for="comment") Comment:
+                    input(type="text",name="comment")
+                    br
+                    button(type="submit") comment
 
     script(type="text/javascript" src="movieLoader.js")
