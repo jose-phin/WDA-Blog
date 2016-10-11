@@ -60,6 +60,13 @@ a:hover {
 }
 
 
+hr.separator-generic{
+    width: 40px;
+    background: white;
+    height: 1px;
+    border: none;
+}
+
 /* Navigation bar */
 .mavericks-nav {
     display: block;

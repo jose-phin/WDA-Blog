@@ -4,14 +4,31 @@ block content
     .moviePage-movieBackgroundGradient
     .moviePage-movieBackgroundImage(style= 'background-image: url('+ movie.poster + ');')
 
-
     .container
-
         .moviePage-moviePosterContainer
             img.moviePage-moviePoster(src= movie.poster)
 
         .moviePage-container
             h1.moviePage-movieTitle #{movie.title}
+
+            #{movie}
+
+            .moviePage-movieDetailsContainer
+                .moviePage-movieReleaseDate
+                    #{movie.releaseDate}
+
+                .moviePage-movieGenres
+                    #{movie.genre}
+
+                .moviePage-movieRunTime
+                    #{movie.runTime}
+
+            hr.separator-generic
+
+            .moviePage-userRatingContainer
+                span.movieRating.moviePage-userRating= movie.imdbRating
+
+
             p Description: #{movie.plot}
             p Comments:
             each c in movie.comments
