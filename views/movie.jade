@@ -43,38 +43,39 @@ block content
                 h3.commentsTitle Comments
 
                 .moviePage-commentsContainer
-                each c in movie.comments
-                    ul
-                        li user:#{c.username}
-                        li comment: #{c.comment}
-                            if c.replies
-                                for r in c.replies
-                                    ul
-                                        li username: #{r.username}
-                                        li comment: #{r.comment}
-                            if !isNotLoggedIn
-                                button(class="redButton",id="reply-button-#{c.id}" onClick="showReplyForm('#{c.id}')") reply
-                                div(class="reply-form",id="reply-div-#{c.id}")
-                                    form(method="POST",id="reply-#{c.id}")
-                                        label(for="username") Username: #{username}
-                                        br
-                                        label(for="comment") Comment:
-                                        input(type="text",name="comment")
-                                        br
-                                        input(type="hidden",name="isReply",value="true")
-                                        input(type="hidden",name="commentId",value='#{c.id}')
-                                        button(type="submit") comment
+                    if isNotLoggedIn
+                        p To be able to comment, please
+                            a(href='/login') login
+                    else
+                        form(method="POST" id="comment-form" class="commentForm")
+                            textarea(type="text", name="comment", class="form-control comment-inputBox", rows="3", placeholder="Write a comment...")
+                            .commentForm-submitRow
+                                button(type="submit", class="commentForm-submit submitButton") Post
+                                label(for="username", class="commentForm-currUser") Posting as: #{username}
 
-                if isNotLoggedIn
-                    p To be able to comment, please
-                        a(href='/login') login
-                else
-                    form(method="POST" id="comment-form")
-                        label(for="username") Username: #{username}
-                        br
-                        label(for="comment") Comment:
-                        input(type="text",name="comment")
-                        br
-                        button(type="submit") comment
+                    each c in movie.comments
+                        ul
+                            li user:#{c.username}
+                            li comment: #{c.comment}
+                                if !isNotLoggedIn
+                                    button(class="redButton",id="reply-button-#{c.id}" onClick="showReplyForm('#{c.id}')") reply
+                                    div(class="reply-form",id="reply-div-#{c.id}")
+                                        form(method="POST",id="reply-#{c.id}")
+                                            label(for="username") Username: #{username}
+                                            br
+                                            label(for="comment") Comment:
+                                            input(type="text",name="comment")
+                                            br
+                                            input(type="hidden",name="isReply",value="true")
+                                            input(type="hidden",name="commentId",value='#{c.id}')
+                                            button(type="submit") comment
+                                if c.replies
+                                    for r in c.replies
+                                        ul
+                                            li username: #{r.username}
+                                            li comment: #{r.comment}
+
+
+
 
     script(type="text/javascript" src="movieLoader.js")
