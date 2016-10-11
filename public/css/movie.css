@@ -5,32 +5,6 @@
     margin: 0 auto;
 }
 
-/* Large desktop */
-@media (min-width: 1200px) {
-
-}
-
-/* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) {
-
-}
-
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
-    .moviePage-container{
-        width: 80vw;
-        margin: 0 auto;
-    }
-
-}
-
-/* Landscape phones and down */
-@media (max-width: 480px) {
-
-}
-
-
-
 /* Movie Background */
 .moviePage-movieBackgroundGradient{
     background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
@@ -100,29 +74,95 @@
     text-align: center;
     font-weight: 300;
     font-size: 3.5em;
+    margin-bottom: 20px;
 }
 
+
+/* Movie Info */
+.moviePage-movieDetailsContainer{
+    display: flex;
+    justify-content: center;
+    -webkit-flex-flow: row wrap;
+}
+
+.moviePage-movieDetails-col{
+    padding: 20px 20px;
+}
+
+.moviePage-movieDetails-title{
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+}
 
 
 
 /* Movie Rating */
 .moviePage-userRatingContainer{
     margin: 0 auto;
+    padding: 15px 0 8px;
+}
+
+.moviePage-movieDetails-movieUserRating{
+    text-align: center;
 }
 
 span.movieRating.moviePage-userRating{
     display: block;
-    margin: 0 auto;
-    line-height: 3.3em;
+    line-height: 3em;
     text-align: center;
     font-weight: 400;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #D8C39D;
     border: 2px solid #D8C39D;
     border-radius: 50%;
-    margin-top: 10px;
-    width: 10%;
+    width: 50px;
     height: 0;
     position: relative;
-    padding-bottom: calc(10% - 0.5rem);
+    padding-bottom: calc(50px - 0.5rem);
+    margin: 10px auto;
+
 }
+
+
+.moviePage-movieDescription{
+    width: 30vw;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+
+
+/* Large desktop */
+@media (min-width: 1200px) {
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    .moviePage-container{
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+    .moviePage-movieDescription{
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
+}
+

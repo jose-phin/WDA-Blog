@@ -11,25 +11,35 @@ block content
         .moviePage-container
             h1.moviePage-movieTitle #{movie.title}
 
-            #{movie}
 
             .moviePage-movieDetailsContainer
-                .moviePage-movieReleaseDate
-                    #{movie.releaseDate}
 
-                .moviePage-movieGenres
-                    #{movie.genre}
+                .moviePage-movieDetails-col.moviePage-movieReleaseDateContainer
+                    h3.moviePage-movieDetails-title.moviePage-movieDetails-movieReleaseDateTitle Release
+                    .moviePage-movieReleaseDate= movie.releaseDate
 
-                .moviePage-movieRunTime
-                    #{movie.runTime}
+                .moviePage-movieDetails-col.moviePage-movieGenreContainer
+                    h3.moviePage-movieDetails-title.moviePage-movieDetails-movieGenreTitle Genres
+                    .moviePage-movieGenres= movie.genre
+
+                .moviePage-movieDetails-col.moviePage-movieRuntimeContainer
+                    h3.moviePage-movieDetails-title.moviePage-movieDetails-movieRuntimeTitle Runtime
+                    .moviePage-movieRunTime= movie.runTime
 
             hr.separator-generic
 
             .moviePage-userRatingContainer
+                h3.moviePage-movieDetails-title.moviePage-movieDetails-movieUserRating User Rating
                 span.movieRating.moviePage-userRating= movie.imdbRating
 
+            hr.separator-generic
 
-            p Description: #{movie.plot}
+            .moviePage-movieDescription
+                p #{movie.plot}
+
+            hr.separator-generic
+
+
             p Comments:
             each c in movie.comments
                 ul
