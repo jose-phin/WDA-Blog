@@ -44,8 +44,11 @@ block content
 
                 .moviePage-commentsContainer
                     if isNotLoggedIn
-                        p To be able to comment, please
-                            a(href='/login') login
+                        .commentForm.comment-notLoggedIn
+                            p
+                                |To be able to comment, please&nbsp;
+                                a(href='/login', class='commentLogin-link') login
+                                |.
                     else
                         form(method="POST" id="comment-form" class="commentForm")
                             textarea(type="text", name="comment", class="form-control comment-inputBox", rows="3", placeholder="Write a comment...")
@@ -54,28 +57,27 @@ block content
                                 label(for="username", class="commentForm-currUser") Posting as: #{username}
 
                     each c in movie.comments
-                        ul
-                            li user:#{c.username}
-                            li comment: #{c.comment}
-                                if !isNotLoggedIn
-                                    button(class="redButton",id="reply-button-#{c.id}" onClick="showReplyForm('#{c.id}')") reply
-                                    div(class="reply-form",id="reply-div-#{c.id}")
-                                        form(method="POST",id="reply-#{c.id}")
-                                            label(for="username") Username: #{username}
-                                            br
-                                            label(for="comment") Comment:
-                                            input(type="text",name="comment")
-                                            br
-                                            input(type="hidden",name="isReply",value="true")
-                                            input(type="hidden",name="commentId",value='#{c.id}')
-                                            button(type="submit") comment
-                                if c.replies
+                        .commentForm
+                            h3.commentUser= c.username
+                            p.commentContext= c.comment
+                            if !isNotLoggedIn
+                                button(class="replyComment-Button",id="reply-button-#{c.id}" onClick="showReplyForm('#{c.id}')") Reply
+                                div(class="reply-form commentForm",id="reply-div-#{c.id}")
+                                    form(method="POST",id="reply-#{c.id}")
+                                        input(type="hidden",name="isReply",value="true")
+                                        input(type="hidden",name="commentId",value='#{c.id}')
+                                        textarea(type="text", name="comment", class="form-control comment-inputBox commentReply-inputBox", rows="3", placeholder="Write a comment...")
+                                        .commentForm-submitRow
+                                            button(type="submit", class="commentForm-submit commentForm-replyButton submitButton") Reply
+                                            label(for="username", class="commentForm-currUser") Posting as: #{username}
+                            if c.replies
+                                .repliesContainer
                                     for r in c.replies
-                                        ul
-                                            li username: #{r.username}
-                                            li comment: #{r.comment}
-
-
+                                        .replyBox
+                                            .replyOPandTimeContainer
+                                                h3.commentUser.replyUser= r.username
+                                                p.commentReplyTime &nbsp;on&nbsp; #{r.date}
+                                            p.commentContext= r.comment
 
 
     script(type="text/javascript" src="movieLoader.js")
