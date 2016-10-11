@@ -29,6 +29,11 @@ Will take you to the login page which has 2 buttons, 'login' and 'create'. The '
 ```
 Will remove session.username and will no longer be able to comment
 
+```
+\omdb\<omdb-id>
+```
+Adding another movie, go to http://www.omdbapi.com/ and find the movie you want and get the omdbId and it will add the movie to the DB
+
 ###Add Movie
 * **URL**
 ```

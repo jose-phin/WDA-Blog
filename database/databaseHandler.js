@@ -80,7 +80,26 @@ function addComments(title, comment, callback) {
         .cursor()
         .on('data', function(doc){movie = doc})
         .on('err', function() {return callback(err);})
-        .on('end', function() {movie.comments.push(comment);movie.save(); return callback(null)});
+        .on('end', function() {
+            if(comment.isReply) {
+                var reply = {};
+                reply.username = comment.username;
+                reply.comment = comment.comment;
+                reply.date = comment.date;
+                console.log('reply: '+ JSON.stringify(reply));
+                for(var i=0; i<movie.comments.length; i++) {
+                    if(movie.comments[i]._id == comment.commentId) {
+                        movie.comments[i].replies.push(reply);
+                    }
+                }
+                movie.save();
+                return callback(null);
+            } else {
+                movie.comments.push(comment);
+                movie.save();
+                return callback(null);
+            }
+        });
 }
 
 function addUser (data, callback) {

@@ -17,7 +17,11 @@ var movieSchema = new mongoose.Schema({
         [{
             username: String,
             comment: String,
-            date: Date
+            date: Date,
+            replies: [{
+                username: String,
+                comment: String,
+                date: Date}]
         }]
 });
 
