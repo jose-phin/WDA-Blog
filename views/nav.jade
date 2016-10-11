@@ -19,26 +19,30 @@ nav.mavericks-nav.navbar.navbar-default.navbar-static-top.navbar-fixed-top
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav.navbar-right
         // Movies
-        li
-          a(href="{{ url('movies/') }}") Movies
-        li
-          a(href="{{ url('search/') }}") Search
-        // Authentication Links
-        //if (Auth::guest())
-        li
-          a(href="{{ url('/login') }}") Login
-        li
-          a(href="{{ url('/register') }}") Register
-        //else
-        li.dropdown
-          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+        //li
+        //  a(href="/") Movies
 
-            span.caret
-          ul.dropdown-menu(role='menu')
-            li
-              a(href="{{ url('user/profile') }}") View Profile
-            li
-              a(href="{{ url('/logout') }}")
-                i.fa.fa-btn.fa-sign-out
-                | Logout
+        if username
+          li
+            a(href="/logout") Logout
+        else
+          li
+            a(href="/login") Login
+          li
+            a(href="/register") Register
+
+
+
+        ////else
+        //li.dropdown
+        //  a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+        //
+        //    span.caret
+        //  ul.dropdown-menu(role='menu')
+        //    li
+        //      a(href="{{ url('user/profile') }}") View Profile
+        //    li
+        //      a(href="{{ url('/logout') }}")
+        //        i.fa.fa-btn.fa-sign-out
+        //        | Logout
 
