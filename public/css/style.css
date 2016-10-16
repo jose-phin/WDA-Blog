@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p{
-    font-weight: 200;
+    font-weight: 300;
 }
 
 a {
@@ -59,6 +59,13 @@ a:hover {
     align-self: center;
 }
 
+
+hr.separator-generic{
+    width: 40px;
+    background: white;
+    height: 1px;
+    border: none;
+}
 
 /* Navigation bar */
 .mavericks-nav {
@@ -109,45 +116,70 @@ a:hover {
     margin-left: 10px;
 }
 
-/* Carousel */
-#mavericks-carousel {
-    margin-bottom: 20px;
+
+
+
+/* Login and Register */
+.loginRegisterContainer{
+    margin-top: 10px;
 }
 
-#mavericks-carousel img {
-    width: 100vw;
+.loginRegister-panelContainer{
+    background: black;
+    border: none;
 }
 
-.slick-slider ul {
-    padding-left: 47%;
-    margin: -100px 0 50px 0;
+.loginRegister-panelContainer > .loginRegister-panelHeading{
+    background-color: black;
+    border: 0;
+    color: white;
+    font-size: 3em;
+    text-align: center;
 }
 
-.slick-dots li {
-    display: block;
-    float: left;
-    margin: 0 5px;
-    width: 6px;
-    height: 6px;
-    background-color: #fff;
-    border-radius: 50%;
-    opacity: .85;
+.loginRegister-panelBody{
+    background-color: black;
+    border: 0;
 }
 
-.slick-active {
-    background-color: #aaaaaa !important;
+.loginRegister-title{
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
-.slick-dots li:hover {
-    cursor: pointer;
+.loginRegister-inputBox{
+    background: black;
+    color: white;
+    outline: none;
+    border: 1px solid #A4A4A4;
+    transition: all 0.2s ease-in-out;
 }
 
-.slick-dots li button {
-    display: none;
+.loginRegister-inputBox:focus{
+    outline: none;
+    border: 1px solid #D8C39D;
+    box-shadow: 0 0 10px rgba(216,195,157,0.5);
+    transition: all 0.2s ease-in-out;
 }
 
+span.help-block{
+    color: #9D0E16;
+    font-weight: 300;
+}
 
+button.btn.btn-primary.gold{
+    background: #D8C39D;
+    color: black;
+    padding: 10px 25px;
+    border-radius: 6px;
+    border: 1px solid #D8C39D;
+    transition: all 0.2s ease-in-out;
+}
 
+button.btn.btn-primary.gold:hover{
+    transform: scale(1.05);
+
+}
 
 /* Footer */
 footer {

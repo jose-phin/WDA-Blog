@@ -2,26 +2,26 @@ extends layouts/_layout
 
 block content
     .container
-        .row
-            .col-md-8.col-md-offset-2
-                .panel.panel-default
-                    .panel-heading Register
-                    .panel-body
-                        form.form-horizontal#loginForm(method="POST", action="/createAccount")
-                            .form-group
-                                label.col-md-4.control-label(for="username") Username
-                                .col-md-6
-                                    input.form-control#username(type="text", name="username")
-                            .form-group
-                                label.col-md-4.control-label(for="password") Password
-                                .col-md-6
-                                    input.form-control#password(type="password", name="password")
+        .loginRegisterContainer
+            .row
+                .col-md-8.col-md-offset-2
+                    .panel.panel-default.loginRegister-panelContainer
+                        .panel-heading.loginRegister-panelHeading Register
+                        .panel-body.loginRegister-panelBody
+                            form.form-horizontal#loginForm(method="POST", action="/createAccount")
+                                .form-group
+                                    label.col-md-4.control-label(for="username", class="loginRegister-title") Username
+                                    .col-md-6
+                                        input.form-control#username(type="text", name="username", class="loginRegister-inputBox")
+                                .form-group
+                                    label.col-md-4.control-label(for="password", class="loginRegister-title") Password
+                                    .col-md-6
+                                        input.form-control#password(type="password", name="password", class="loginRegister-inputBox")
 
-                                    if warningMessage
-                                        span.help-block
-                                            strong #{warningMessage}
-                            .form-group
-                                .col-md-6.col-md-offset-4
-                                    button.btn.btn-primary.gold(type="submit")
-                                        i.fa.fa-btn.fa-sign-in
-                                        |   Register
+                                        if warningMessage
+                                            span.help-block= warningMessage
+                                .form-group
+                                    .col-md-6.col-md-offset-4
+                                        button.btn.btn-primary.gold(type="submit")
+                                            i.fa.fa-btn.fa-sign-in
+                                            |&nbsp;&nbsp;Register
