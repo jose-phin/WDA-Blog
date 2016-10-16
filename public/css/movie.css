@@ -76,6 +76,8 @@
     font-weight: 300;
     font-size: 3.5em;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 400;
 }
 
 
